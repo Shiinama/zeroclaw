@@ -85,4 +85,4 @@ WORKDIR /zeroclaw-data
 # via gosu before exec-ing the application.
 EXPOSE 42617
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["zeroclaw", "gateway"]
+CMD ["zeroclaw", "daemon"]
