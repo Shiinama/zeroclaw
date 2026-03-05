@@ -11,14 +11,6 @@ Scope: entire repository.
 - Context mentioning external repositories does not authorize cross-repo edits; explicit current-turn override is required.
 - Before any repo-affecting action, verify target lock (`pwd` + git root) to prevent accidental execution in sibling repositories.
 
-## 0.1) Clean Worktree First Gate (Mandatory)
-
-- Before handling any repository content (analysis, debugging, coding, tests, docs, CI), create a **new clean dedicated git worktree** for the active task.
-- Do not perform substantive task work in a dirty workspace.
-- Do not reuse a previously dirty worktree for a new task track.
-- If the current location is dirty, stop and bootstrap a clean worktree/branch first.
-- If worktree bootstrap fails, stop and report the blocker; do not continue in-place.
-
 ## 1) Project Snapshot (Read First)
 
 ZeroClaw is a Rust-first autonomous agent runtime optimized for:
@@ -285,11 +277,11 @@ All contributors (human or agent) must follow the same collaboration flow:
 - Do not start triage/review/implementation/merge work before assignee assignment is confirmed.
 - Queue safety rule: assign only the currently active target; do not pre-assign future queued targets.
 
-### 6.2 Worktree Workflow (Required for All Task Streams)
+### 6.2 Worktree Workflow (Recommended)
 
-Use Git worktrees to isolate every active task stream safely and predictably:
+Use Git worktrees to isolate active task streams safely and predictably when practical:
 
-- Use one dedicated worktree per active branch/PR stream; do not implement directly in a shared default workspace.
+- Prefer one dedicated worktree per active branch/PR stream.
 - Keep each worktree on a single branch and a single concern; do not mix unrelated edits in one worktree.
 - Before each commit/push, verify commit hygiene in that worktree (`git status --short` and `git diff --cached`) so only scoped files are included.
 - Run validation commands inside the corresponding worktree before commit/PR.
