@@ -23,6 +23,8 @@ RUN rm -rf src benches crates/robot-kit/src
 COPY src/ src/
 COPY benches/ benches/
 COPY crates/ crates/
+COPY data/ data/
+COPY skills/ skills/
 COPY firmware/ firmware/
 COPY web/ web/
 # Keep release builds resilient when frontend dist assets are not prebuilt in Git.
