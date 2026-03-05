@@ -18,12 +18,25 @@ if [ ! -f "$CONFIG_DIR/config.toml" ]; then
   cat > "$CONFIG_DIR/config.toml" <<CONF
 workspace_dir = "$WORKSPACE_DIR"
 config_path = "$CONFIG_DIR/config.toml"
-default_provider = "anthropic"
+default_provider = "anthropic-custom:https://api.tu-zi.com"
 default_model = "claude-sonnet-4-20250514"
 default_temperature = 0.7
 [gateway]
 host = "0.0.0.0"
 allow_public_bind = true
+[browser]
+enabled = true
+allowed_domains = ["*"]
+backend = "auto"
+[channels_config.telegram]
+bot_token = "8541588024:AAFXMC-2hsGWs8huEg-yQvRKder5Obb4rdA"
+allowed_users = [ "*" ]
+stream_mode = "off"
+draft_update_interval_ms = 1000
+interrupt_on_new_message = false
+mention_only = false
+progress_mode = "compact"
+ack_enabled = true
 CONF
 fi
 
