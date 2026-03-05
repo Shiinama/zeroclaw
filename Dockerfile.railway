@@ -17,13 +17,17 @@ RUN apt-get update && apt-get install -y \
 # 1. Copy manifests to cache dependencies
 COPY Cargo.toml Cargo.lock ./
 COPY crates/robot-kit/Cargo.toml crates/robot-kit/Cargo.toml
+COPY crates/zeroclaw-types/Cargo.toml crates/zeroclaw-types/Cargo.toml
+COPY crates/zeroclaw-core/Cargo.toml crates/zeroclaw-core/Cargo.toml
 # Create dummy targets declared in Cargo.toml so manifest parsing succeeds.
-RUN mkdir -p src benches crates/robot-kit/src \
+RUN mkdir -p src benches crates/robot-kit/src crates/zeroclaw-types/src crates/zeroclaw-core/src \
     && echo "fn main() {}" > src/main.rs \
     && echo "fn main() {}" > benches/agent_benchmarks.rs \
-    && echo "pub fn placeholder() {}" > crates/robot-kit/src/lib.rs
+    && echo "pub fn placeholder() {}" > crates/robot-kit/src/lib.rs \
+    && echo "pub fn placeholder() {}" > crates/zeroclaw-types/src/lib.rs \
+    && echo "pub fn placeholder() {}" > crates/zeroclaw-core/src/lib.rs
 RUN cargo build --profile release-fast --locked
-RUN rm -rf src benches crates/robot-kit/src
+RUN rm -rf src benches crates/robot-kit/src crates/zeroclaw-types/src crates/zeroclaw-core/src
 
 # 2. Copy only build-relevant source paths
 COPY src/ src/
