@@ -24,6 +24,7 @@ default_temperature = 0.7
 [gateway]
 host = "0.0.0.0"
 allow_public_bind = true
+require_pairing = false
 [browser]
 enabled = true
 allowed_domains = ["*"]
