@@ -16,7 +16,7 @@
       "ZEROCLAW_PROVIDER": {
         "description": "Anthropic-compatible custom provider endpoint (format: anthropic-custom:https://your-proxy-host)",
         "required": false,
-        "default": "https://api.tu-zi.com"
+        "default": "anthropic-custom:https://api.tu-zi.com"
       },
       "ZEROCLAW_MODEL": {
         "description": "Claude model name for the selected provider endpoint",
