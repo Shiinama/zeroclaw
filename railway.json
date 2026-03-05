@@ -10,18 +10,31 @@
     "restartPolicyMaxRetries": 3,
     "envVars": {
       "API_KEY": {
-        "description": "API key for your OpenAI-compatible provider endpoint (e.g. sub2api key)",
+        "description": "API key for your Anthropic-compatible provider endpoint",
         "required": true
       },
       "ZEROCLAW_PROVIDER": {
-        "description": "Provider selector. Use custom endpoint for OpenClaw-compatible gateways",
+        "description": "Anthropic-compatible custom provider endpoint (format: anthropic-custom:https://your-proxy-host)",
         "required": false,
-        "default": "https://api.tonsof.blue/v1"
+        "default": "https://api.tu-zi.com"
       },
       "ZEROCLAW_MODEL": {
-        "description": "Model to use on the compatible endpoint",
+        "description": "Claude model name for the selected provider endpoint",
         "required": false,
         "default": "claude-sonnet-4-5-20250929"
+      },
+      "ZEROCLAW_PROXY_ENABLED": {
+        "description": "Enable ZeroClaw managed proxy forwarding",
+        "required": false,
+        "default": "true"
+      },
+      "ZEROCLAW_HTTPS_PROXY": {
+        "description": "HTTPS proxy URL (e.g. http://proxy.example.com:8080)",
+        "required": false
+      },
+      "ZEROCLAW_HTTP_PROXY": {
+        "description": "HTTP proxy URL (e.g. http://proxy.example.com:8080)",
+        "required": false
       },
       "ZEROCLAW_TEMPERATURE": {
         "description": "Model temperature (0.0–2.0)",
