@@ -62,7 +62,10 @@ FROM debian:trixie-slim AS release
 
 RUN apt-get update && apt-get install -y \
         ca-certificates \
+        curl \
+        git \
         gosu \
+        which \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/zeroclaw /usr/local/bin/zeroclaw
@@ -71,6 +74,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV ZEROCLAW_WORKSPACE=/zeroclaw-data/workspace
 ENV HOME=/zeroclaw-data
+ENV SHELL=/usr/bin/bash
 # NOTE: Do NOT set ZEROCLAW_GATEWAY_PORT here — Railway injects PORT
 # automatically and routes traffic to it. The app falls back to PORT
 # when ZEROCLAW_GATEWAY_PORT is unset (see config/schema.rs).
