@@ -28,15 +28,6 @@ allow_public_bind = true
 enabled = true
 allowed_domains = ["*"]
 backend = "auto"
-[channels_config.telegram]
-bot_token = "8541588024:AAFXMC-2hsGWs8huEg-yQvRKder5Obb4rdA"
-allowed_users = [ "*" ]
-stream_mode = "off"
-draft_update_interval_ms = 1000
-interrupt_on_new_message = false
-mention_only = false
-progress_mode = "compact"
-ack_enabled = true
 CONF
 fi
 
