@@ -7,6 +7,18 @@
     "healthcheckPath": "/health",
     "healthcheckTimeout": 10,
     "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 3
+    "restartPolicyMaxRetries": 3,
+    "envVars": {
+      "ZEROCLAW_ALLOW_PUBLIC_BIND": {
+        "description": "Allow binding to public interfaces (must be true for Railway)",
+        "required": false,
+        "default": "true"
+      },
+      "ZEROCLAW_GATEWAY_HOST": {
+        "description": "Gateway bind address (0.0.0.0 for Railway networking)",
+        "required": false,
+        "default": "0.0.0.0"
+      }
+    }
   }
 }
