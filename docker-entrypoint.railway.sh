@@ -5,8 +5,8 @@ set -e
 # This entrypoint ensures the data directories exist with correct
 # ownership before dropping to the unprivileged runtime user.
 
-ZEROCLAW_UID=65534
-ZEROCLAW_GID=65534
+ZEROCLAW_UID=0
+ZEROCLAW_GID=0
 DATA_DIR=/zeroclaw-data
 CONFIG_DIR="$DATA_DIR/.zeroclaw"
 WORKSPACE_DIR="$DATA_DIR/workspace"
